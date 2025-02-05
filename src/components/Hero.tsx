@@ -34,6 +34,8 @@ const Hero: React.FC = () => {
                 3000,
                 'Experience',
                 3000,
+                'AI Integration',
+                3000,
               ]}
               wrapper="span"
               speed={50}
