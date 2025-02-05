@@ -1,0 +1,68 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: #c41e3d;
+  --background: #0b0a07;
+  --text: #ffffff;
+  scroll-behavior: smooth;
+}
+
+@layer base {
+  body {
+    background-color: var(--background);
+    color: var(--text);
+    overflow-y: auto;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Improve scrollbar appearance */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--background);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--primary);
+    border-radius: 4px;
+  }
+}
+
+@layer components {
+  .section-container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 opacity-0 transform translate-y-8;
+    will-change: opacity, transform;
+  }
+
+  .section-container.visible {
+    @apply opacity-100 translate-y-0;
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+
+  .skill-bar {
+    @apply h-2 bg-gray-200 rounded-full overflow-hidden;
+  }
+
+  .skill-progress {
+    @apply h-full bg-primary transition-all duration-1000 ease-out;
+  }
+}
+
+.custom-cursor {
+  @apply fixed w-20 h-20 rounded-full pointer-events-none z-50 mix-blend-difference;
+  background: var(--primary);
+  transition: transform 0.2s ease;
+}
+
+.tilt-card {
+  transform-style: preserve-3d;
+  transform: perspective(1000px);
+}
