@@ -24,31 +24,20 @@ const About: React.FC = () => {
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-8">About Me</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-8">My Skills</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             <div>
               <div>
                 <p className="text-lg mb-6">
                   I build complete web applications from start to finish. From
                   frontend interfaces to backend logic, I handle it all with
-                  precision and efficiency. My work isn’t just functional—it
+                  precision and efficiency.Every project I take on isn’t just functional—it
                   delivers real impact.
                 </p>
                 <p className="text-lg mb-6">
-                  I’ve developed AI-powered tools, streamlined business
-                  operations, and built platforms that convert users into
-                  customers. Every project I take on is designed for
-                  performance, usability, and growth.
+                I build with <b>HTML, CSS, JavaScript, React, Redux, Next.js, Tailwind CSS</b> for the frontend  <b>Node.js, Express, SQL, Firebase, Supabase</b> for the backend, including RESTful APIs. I also work with <b>Three.js, React Three Fiber, Squarespace, WordPress</b>, and AI tools like <b>Amazon Rekognition API</b>.
                 </p>
               </div>
-
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="px-6 py-2 bg-primary text-text rounded-full font-medium hover:shadow-lg transition-shadow duration-300"
-              >
-                Download Resume
-              </motion.button>
             </div>
             <div className="space-y-6">
               {skills.map((skill, index) => (
