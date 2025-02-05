@@ -22,18 +22,18 @@ const Hero: React.FC = () => {
           className="hero-content"
         >
           <h2 className="text-lg md:text-xl max-w-2xl mx-auto mb-8 opacity-80">
-            Hi , I am JITHIN
+            Hi , I am Jithin
           </h2>
           <h1 className="text-4xl md:text-6xl font-bold mb-6">
             I make Web{' '}
             <TypeAnimation
               sequence={[
                 'Applications',
-                3000,
+                5000,
                 'Designes',
-                2000,
+                3000,
                 'Experience',
-                2000,
+                3000,
               ]}
               wrapper="span"
               speed={50}

@@ -3,10 +3,10 @@ import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 
 const skills = [
-  { name: 'Frontend Development', level: 101 },
-  { name: 'Backend Development', level: 101 },
-  { name: 'UI/UX Design', level: 95 },
-  { name: 'AI Integration', level: 90 },
+  { name: 'Full Stack Development', level: 101 },
+  { name: 'UI & UX', level: 101 },
+  { name: 'AI Integration', level: 98 },
+  { name: 'Cooking', level: 10 },
 ];
 
 const About: React.FC = () => {

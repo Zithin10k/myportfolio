@@ -5,25 +5,25 @@ import { Briefcase, Calendar } from 'lucide-react';
 
 const experiences = [
   {
-    title: 'Senior Frontend Developer',
-    company: 'Tech Corp',
-    period: '2021 - Present',
+    title: 'Intern - Frontend Developer',
+    company: 'Apollo Hospital Hyderabad',
+    period: '2023',
     description:
-      'Led the development of multiple high-impact web applications using React and TypeScript.',
+      'Designed and developed user interfaces using Figma and React to enhance AI tool utilization across departments. Built a system to collect user data, process it with AI, and generate dynamic reports.',
   },
   {
-    title: 'Full Stack Developer',
-    company: 'Digital Solutions Inc',
-    period: '2019 - 2021',
+    title: 'Freelance - Full Stack + AI Developer',
+    company: 'Hindustan Relocation Services',
+    period: '2023',
     description:
-      'Developed and maintained full-stack applications using modern JavaScript frameworks.',
+      'Developed an end-to-end web application with multiple user interfaces for clients, vendors, and executives. Achieved 500+ lead-to-customer conversions in the first month by streamlining workflows.',
   },
   {
-    title: 'Junior Developer',
-    company: 'StartUp Hub',
-    period: '2017 - 2019',
+    title: 'Startup',
+    company: 'Startup',
+    period: '2023 - Present',
     description:
-      'Collaborated on various web development projects and learned modern development practices.',
+      'Built an eCommerce platform for premium sarees with product ordering, admin controls, and advanced search features. Integrated React, Node.js, and Firebase to ensure a seamless user experience.',
   },
 ];
 
