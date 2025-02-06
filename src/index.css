@@ -66,3 +66,9 @@
   transform-style: preserve-3d;
   transform: perspective(1000px);
 }
+
+@media only screen and (max-width: 500px) {
+  #diverForHero {
+    display: block;
+  }
+}

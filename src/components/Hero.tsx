@@ -26,6 +26,7 @@ const Hero: React.FC = () => {
           </h2>
           <h1 className="text-4xl md:text-6xl font-bold mb-6">
             I make Web{' '}
+            <span id='diverForHero'></span>
             <TypeAnimation
               sequence={[
                 'Applications',
