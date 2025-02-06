@@ -30,7 +30,7 @@ const Hero: React.FC = () => {
               sequence={[
                 'Applications',
                 5000,
-                'Designes',
+                'Designs',
                 3000,
                 'Experience',
                 3000,
@@ -81,7 +81,7 @@ const Hero: React.FC = () => {
           ease: 'easeInOut',
         }}
       >
-        <ArrowDown className="w-6 h-6 text-primary" />
+        <ArrowDown className="w-12 h-12 text-primary" />
       </motion.div>
     </section>
   );

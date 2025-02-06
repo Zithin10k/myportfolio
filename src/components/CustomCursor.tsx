@@ -6,11 +6,21 @@ const CustomCursor: React.FC = () => {
   const [isHovering, setIsHovering] = useState(false);
 
   useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      setMousePosition({ x: e.clientX, y: e.clientY });
+    const handleMouseMove = (e: MouseEvent | TouchEvent) => {
+      let clientX = 0, clientY = 0;
+
+      if ("touches" in e && e.touches.length > 0) {
+        clientX = e.touches[0].clientX;
+        clientY = e.touches[0].clientY;
+      } else if ("clientX" in e) {
+        clientX = e.clientX;
+        clientY = e.clientY;
+      }
+  
+      setMousePosition({ x: clientX, y: clientY });
     };
 
-    const handleMouseOver = (e: MouseEvent) => {
+    const handleMouseOver = (e: MouseEvent | TouchEvent) => {
       if ((e.target as HTMLElement).tagName === 'A' || 
           (e.target as HTMLElement).tagName === 'BUTTON') {
         setIsHovering(true);
@@ -18,13 +28,19 @@ const CustomCursor: React.FC = () => {
         setIsHovering(false);
       }
     };
+    
 
     window.addEventListener('mousemove', handleMouseMove);
     document.addEventListener('mouseover', handleMouseOver);
-
+    
+    window.addEventListener('touchmove', handleMouseMove); // Mobile touch move
+    document.addEventListener('touchstart', handleMouseOver); // Mobile touch start
+    
     return () => {
       window.removeEventListener('mousemove', handleMouseMove);
       document.removeEventListener('mouseover', handleMouseOver);
+      window.removeEventListener('touchmove', handleMouseMove);
+      document.removeEventListener('touchstart', handleMouseOver);
     };
   }, []);
 

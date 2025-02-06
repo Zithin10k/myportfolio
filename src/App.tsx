@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Particles from '@tsparticles/react';
 import Hero from './components/Hero';
 import About from './components/About';
@@ -9,10 +9,18 @@ import CustomCursor from './components/CustomCursor';
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
-
+  const userHasScrolled = useRef({
+    run:0,
+    hasScrolled:false,
+  })
   useEffect(() => {
     // Handle scroll events
     const handleScroll = () => {
+      if (userHasScrolled.current.run === 0) {
+        userHasScrolled.current.run = 1
+      } else {
+        userHasScrolled.current.hasScrolled= true
+      }
       // Handle section visibility
       const sections = document.querySelectorAll('.section-container');
       sections.forEach((section) => {
@@ -23,6 +31,15 @@ function App() {
         }
       });
     };
+    function slightScroll() {
+      if (!(userHasScrolled.current.hasScrolled)) {
+          window.scrollBy({ top: 500, behavior: "smooth" }); 
+          setTimeout(() => window.scrollTo({ top: 0, behavior: "smooth" }), 500);
+      }
+  }
+
+  setTimeout(slightScroll,7000)
+
 
     window.addEventListener('scroll', handleScroll);
 
