@@ -9,14 +9,14 @@ const skills = [
   { name: 'Cooking', level: 10 },
 ];
 
-const About: React.FC = () => {
+const Skills: React.FC = ({refs}) => {
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.2,
   });
 
   return (
-    <section id="about" className="py-5">
+    <section id="about" className="py-5" ref={el => refs.current.skills = el}>
       <div className="section-container">
         <motion.div
           ref={ref}
@@ -64,4 +64,4 @@ const About: React.FC = () => {
   );
 };
 
-export default About;
+export default Skills;

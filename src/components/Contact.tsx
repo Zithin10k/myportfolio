@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { Send, Mail, Phone, MapPin } from 'lucide-react';
 
-const Contact: React.FC = () => {
+const Contact: React.FC = ({refs}) => {
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
@@ -31,7 +31,7 @@ const Contact: React.FC = () => {
   };
 
   return (
-    <section id="contact" className="py-5 bg-background/50">
+    <section id="contact" className="py-5 bg-background/50" ref={el => refs.current.contact= el}>
       <div className="section-container">
         <motion.div
           ref={ref}

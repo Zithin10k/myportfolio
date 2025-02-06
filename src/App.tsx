@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import Particles from '@tsparticles/react';
 import Hero from './components/Hero';
-import About from './components/About';
+import Skills from './components/Skills';
 import Projects from './components/Projects';
 import Experience from './components/Experience';
 import Contact from './components/Contact';
@@ -9,6 +9,13 @@ import CustomCursor from './components/CustomCursor';
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
+  const sections = useRef({
+    hero:null,
+    skills:null,
+    experience:null,
+    projects:null,
+    contact:null,
+  })
   const userHasScrolled = useRef({
     run:0,
     hasScrolled:false,
@@ -33,7 +40,7 @@ function App() {
     };
     function slightScroll() {
       if (!(userHasScrolled.current.hasScrolled)) {
-          window.scrollBy({ top: 500, behavior: "smooth" }); 
+          window.scrollBy({ top: 400, behavior: "smooth" }); 
           setTimeout(() => window.scrollTo({ top: 0, behavior: "smooth" }), 500);
       }
   }
@@ -99,11 +106,11 @@ function App() {
           />
 
           <main className="relative">
-            <Hero />
-            <About />
-            <Experience />
-            <Projects />
-            <Contact />
+            <Hero refs={sections} />
+            <Skills refs={sections}/>
+            <Experience refs={sections} />
+            <Projects refs={sections} />
+            <Contact refs={sections} />
           </main>
           <br />
           <br />

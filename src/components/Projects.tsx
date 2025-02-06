@@ -30,14 +30,14 @@ const projects = [
   },
 ];
 
-const Projects: React.FC = () => {
+const Projects: React.FC = ({refs}) => {
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
   });
 
   return (
-    <section id="projects" className="py-5 bg-background/50">
+    <section id="projects" className="py-5 bg-background/50" ref={el => refs.current.projects = el}>
       <div className="section-container">
         <motion.div
           ref={ref}

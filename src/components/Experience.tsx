@@ -27,14 +27,14 @@ const experiences = [
   },
 ];
 
-const Experience: React.FC = () => {
+const Experience: React.FC = ({refs}) => {
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
   });
 
   return (
-    <section id="experience" className="py-5">
+    <section id="experience" className="py-5" ref={el => refs.current.experience = el}>
       <div className="section-container">
         <motion.div
           ref={ref}
