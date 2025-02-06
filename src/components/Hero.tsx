@@ -5,9 +5,6 @@ import { ArrowDown } from 'lucide-react';
 // import gsap from 'gsap';
 
 const Hero: React.FC = ({refs}) => {
-  // useEffect(() => {
-  //   gsap.from('.hero-content', {
-  // }, []);
 
   return (
     <section
