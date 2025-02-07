@@ -185,14 +185,14 @@ attributes.screenTime = 0;
 attributes.loginTime = startTime.toISOString()
 try {
   // Add the new document to Firestore
-  const docRef = await addDoc(collection(db, "DeviceLogins"), attributes);
+  const docRef = await addDoc(collection(db, "DeviceLoginsSession"), attributes);
   console.log("Document written with ID: ", docRef.id);
   
   // Get a reference to the same document using its path
   const documentRef = doc(db, docRef.path);
 
   // Infinite loop (be cautious with infinite loops in production)
-  while (true) {
+  while ((startTime.getTime()- (new Date).getTime())/1000 <180 ) {
     // Create a new Date object for the current time
     const currentTime = new Date();
 
