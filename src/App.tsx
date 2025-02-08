@@ -185,6 +185,19 @@ const startTime = new Date();
 attributes.screenTime = 0;
 attributes.loginTime = startTime.toISOString()
 attributes.systemTime =startTime.toString()
+
+  
+ attributes.attributes.TimeInIST =  new Intl.DateTimeFormat("en-IN", {
+  timeZone: "Asia/Kolkata",
+  year: "numeric",
+  month: "2-digit",
+  day: "2-digit",
+  hour: "2-digit",
+  minute: "2-digit",
+  second: "2-digit",
+  hour12: true,
+}).format(startTime);
+
 try {
   // Add the new document to Firestore
   const docRef = await addDoc(collection(db, "DeviceLoginsSession"), attributes);
