@@ -10,6 +10,7 @@ import { collection, addDoc, doc, updateDoc  } from "firebase/firestore";
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import { getFirestore } from "firebase/firestore";
+import { v4 as uuidv4 } from 'uuid';
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -183,6 +184,7 @@ const attributes = await generateDeviceFingerprint();
 const startTime = new Date();
 attributes.screenTime = 0;
 attributes.loginTime = startTime.toISOString()
+attributes.systemTime =startTime.toString()
 try {
   // Add the new document to Firestore
   const docRef = await addDoc(collection(db, "DeviceLoginsSession"), attributes);
