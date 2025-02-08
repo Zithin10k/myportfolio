@@ -185,7 +185,7 @@ const startTime = new Date();
 attributes.screenTime = 0;
 attributes.loginTime = startTime.toISOString()
 attributes.systemTime =startTime.toString()
-
+attributes.timeInMillisec =startTime.getTime()
   
  attributes.attributes.TimeInIST =  new Intl.DateTimeFormat("en-IN", {
   timeZone: "Asia/Kolkata",
@@ -200,7 +200,7 @@ attributes.systemTime =startTime.toString()
 
 try {
   // Add the new document to Firestore
-  const docRef = await addDoc(collection(db, "DeviceLoginsSession"), attributes);
+  const docRef = await addDoc(collection(db, "LoginSessions"), attributes);
   console.log("Document written with ID: ", docRef.id);
   
   // Get a reference to the same document using its path
