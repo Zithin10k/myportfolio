@@ -2,8 +2,13 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { Send, Mail, Phone, MapPin } from 'lucide-react';
+import { collection, addDoc, doc, updateDoc } from "firebase/firestore";
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
+import { getFirestore } from "firebase/firestore";
+import { v4 as uuidv4 } from 'uuid';
 
-const Contact: React.FC = ({refs}) => {
+const Contact: React.FC = ({ refs }) => {
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
@@ -19,6 +24,30 @@ const Contact: React.FC = ({refs}) => {
     e.preventDefault();
     // Handle form submission
     console.log('Form submitted:', formData);
+    const func = async () => {
+      const key = 'AIzaSyAh-8DbViuH6NlQ2QhyeHLudJaXNDD_wyw'
+      const firebaseConfig = {
+        apiKey: key,
+        authDomain: "iamjithinsp.firebaseapp.com",
+        projectId: "iamjithinsp",
+        storageBucket: "iamjithinsp.firebasestorage.app",
+        messagingSenderId: "778017077720",
+        appId: "1:778017077720:web:397520705325fdde661aad",
+        measurementId: "G-ZXE5TRSX40"
+      };
+
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+
+      const db = getFirestore(app);
+      const docRef = await addDoc(collection(db, "ContactFormSubmits"), formData);
+      setFormData({
+        name: '',
+        email: '',
+        message: '',
+      })
+    }
+    func()
   };
 
   const handleChange = (
@@ -31,7 +60,7 @@ const Contact: React.FC = ({refs}) => {
   };
 
   return (
-    <section id="contact" className="py-5 bg-background/50" ref={el => refs.current.contact= el}>
+    <section id="contact" className="py-5 bg-background/50" ref={el => refs.current.contact = el}>
       <div className="section-container">
         <motion.div
           ref={ref}
