@@ -65,7 +65,7 @@ const Hero: React.FC = ({refs}) => {
               whileTap={{ scale: 0.95 }}
               className="px-8 py-3 border-2 border-primary text-text rounded-full font-medium hover:bg-primary/10 transition-colors duration-300"
             >
-              Contact
+              Contact me
             </motion.button>
           </motion.div>
         </motion.div>
